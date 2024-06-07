@@ -110,6 +110,11 @@ const Weather = () => {
                   <div key={index}>
                     <h3>{period.name}</h3>
                     <p>
+                      <img
+                        src={period.icon}
+                        alt={period.shortForecast}
+                        className="weather-icon"
+                      />
                       {period.temperature}°{period.temperatureUnit}
                     </p>
                     <p>{period.shortForecast}</p>
