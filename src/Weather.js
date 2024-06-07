@@ -69,15 +69,15 @@ const Weather = () => {
   };
 
   return (
-    <div className="">
+    <div className=" ">
       {!citySubmitted ? (
-        <div className="bg-blue-800">
+        <div className="bg-blue-800 ">
           <form
             onSubmit={handleSubmit}
-            className="grid grid-cols-1 bg-blue-800 gap-5"
+            className="grid grid-cols-1 bg-blue-800 gap-3 h-[500px]"
           >
             <div className="flex items-center justify-center">
-              <h2 className="font-display text-xl font-bold py-2 text-white">
+              <h2 className="font-display text-3xl font-bold py-2 text-white">
                 Enter a city to get weather details:
               </h2>
             </div>
@@ -88,13 +88,13 @@ const Weather = () => {
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="Enter city"
-                className="bg-blue-900 text-white border rounded-lg text-center p-2"
+                className="bg-white text-blue-900 border rounded-lg text-center p-2"
               />
             </div>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center py-5 mb-8">
               <button
                 type="submit"
-                className="font-display bg-blue-800 text-white rounded-full p-2 border-2"
+                className="font-display bg-blue-800 text-white rounded-full p-2 border-2 font-bold"
               >
                 Get Weather
               </button>
@@ -104,20 +104,25 @@ const Weather = () => {
       ) : (
         <>
           {loading ? (
-            <p>Loading...</p>
+            <p className="bg-blue-800">Loading...</p>
           ) : error ? (
-            <div>
-              <p>Error fetching data: {error}</p>
-              <button
-                onClick={() => {
-                  setCitySubmitted(false);
-                  setWeatherData(null);
-                  setError(null);
-                }}
-                className="font-display bg-blue-800 text-white rounded-full p-2 border-2"
-              >
-                Try Again
-              </button>
+            <div className="bg-blue-800">
+              <p className="font-display text-xl font-bold text-white flex justify-center items-cente py-6">
+                Error fetching data: {error}
+              </p>
+              <div className="flex justify-center items-center  p-8">
+                {" "}
+                <button
+                  onClick={() => {
+                    setCitySubmitted(false);
+                    setWeatherData(null);
+                    setError(null);
+                  }}
+                  className="font-display bg-blue-800 text-white rounded-full p-2 border-2 lg:font-bold lg:text-lg"
+                >
+                  Try Again
+                </button>
+              </div>
             </div>
           ) : (
             <div className="">
