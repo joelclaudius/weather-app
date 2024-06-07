@@ -71,10 +71,10 @@ const Weather = () => {
   return (
     <div className=" ">
       {!citySubmitted ? (
-        <div className="bg-blue-800 ">
+        <div className="bg-blue-800 h-[500px] py-6">
           <form
             onSubmit={handleSubmit}
-            className="grid grid-cols-1 bg-blue-800 gap-3 h-[500px]"
+            className="grid grid-cols-1 bg-blue-800  gap-10"
           >
             <div className="flex items-center justify-center">
               <h2 className="font-display text-3xl font-bold py-2 text-white">
@@ -91,7 +91,7 @@ const Weather = () => {
                 className="bg-white text-blue-900 border rounded-lg text-center p-2"
               />
             </div>
-            <div className="flex items-center justify-center py-5 mb-8">
+            <div className="flex items-center justify-center">
               <button
                 type="submit"
                 className="font-display bg-blue-800 text-white rounded-full p-2 border-2 font-bold"
@@ -108,7 +108,7 @@ const Weather = () => {
           ) : error ? (
             <div className="bg-blue-800">
               <p className="font-display text-xl font-bold text-white flex justify-center items-cente py-6">
-                Error fetching data: {error}
+                {error}
               </p>
               <div className="flex justify-center items-center  p-8">
                 {" "}

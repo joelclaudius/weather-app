@@ -7,11 +7,11 @@ const LandingPageDescription = () => {
  `;
 
   return (
-    <section className="bg-blue-800 px-[200px] lg:py-8 lg:h-[300px]">
-      <h1 className="text-3xl font-bold text-center text-white mb-4 italic">
+    <section className="bg-blue-800 lg:px-[200px] lg:py-8 h-[300px] lg:h-[300px]">
+      <h1 className=" text-xl lg:text-3xl font-bold text-center text-white mb-4 italic">
         Welcome to WeatherWise
       </h1>
-      <p className="text-lg text-white mb-4 text-center">
+      <p className="lg:text-xl text-white pb-4 text-center ">
         <TypingEffect text={description} speed={50} />
       </p>
     </section>
