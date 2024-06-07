@@ -4,31 +4,67 @@ import axios from "axios";
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState("");
+  const [coordinates, setCoordinates] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [citySubmitted, setCitySubmitted] = useState(false);
 
-  // Function to fetch weather data
-  const fetchWeatherData = async () => {
-    setLoading(true);
-    setError(null); // Reset error state before fetching new data
-    try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=ddc3883b1100a8b7418bbc124b63cbff&units=metric`
-      );
-      setWeatherData(response.data);
-      setCitySubmitted(true);
-    } catch (error) {
-      setError(error.response ? error.response.data.message : error.message);
+  // Fetch geographic coordinates for the given city
+  useEffect(() => {
+    if (citySubmitted && city.trim()) {
+      const fetchCoordinates = async () => {
+        setLoading(true);
+        setError(null);
+        try {
+          const geoResponse = await axios.get(
+            `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
+              city
+            )}&format=json&limit=1`
+          );
+          if (geoResponse.data.length > 0) {
+            const { lat, lon } = geoResponse.data[0];
+            setCoordinates({ lat, lon });
+          } else {
+            setError("City not found");
+            setLoading(false);
+          }
+        } catch (error) {
+          setError("Error fetching coordinates");
+          setLoading(false);
+        }
+      };
+
+      fetchCoordinates();
     }
-    setLoading(false);
-  };
+  }, [citySubmitted, city]);
+
+  // Fetch weather data for the given coordinates
+  useEffect(() => {
+    if (coordinates) {
+      const fetchWeatherData = async () => {
+        try {
+          const locationResponse = await axios.get(
+            `https://api.weather.gov/points/${coordinates.lat},${coordinates.lon}`
+          );
+          const forecastUrl = locationResponse.data.properties.forecast;
+
+          const weatherResponse = await axios.get(forecastUrl);
+          setWeatherData(weatherResponse.data);
+        } catch (error) {
+          setError("Error fetching weather data");
+        }
+        setLoading(false);
+      };
+
+      fetchWeatherData();
+    }
+  }, [coordinates]);
 
   // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault();
     if (city.trim()) {
-      fetchWeatherData();
+      setCitySubmitted(true);
     }
   };
 
@@ -56,7 +92,11 @@ const Weather = () => {
             <div>
               <p>Error fetching data: {error}</p>
               <button
-                onClick={() => setCitySubmitted(false)}
+                onClick={() => {
+                  setCitySubmitted(false);
+                  setWeatherData(null);
+                  setError(null);
+                }}
                 className="try-again-button"
               >
                 Try Again
@@ -64,15 +104,24 @@ const Weather = () => {
             </div>
           ) : (
             <div className="weather-info">
-              <h1>Weather in {weatherData.name}</h1>
-              <p>Temperature: {weatherData.main.temp} °C</p>
-              <p>Condition: {weatherData.weather[0].description}</p>
-              <p>Feels Like: {weatherData.main.feels_like} °C</p>
-              <p>Wind Speed: {weatherData.wind.speed} m/s</p>
-              <p>Humidity: {weatherData.main.humidity}%</p>
-              <p>Pressure: {weatherData.main.pressure} hPa</p>
+              <h1>Weather Forecast for {city}</h1>
+              {weatherData &&
+                weatherData.properties.periods.map((period, index) => (
+                  <div key={index}>
+                    <h3>{period.name}</h3>
+                    <p>
+                      {period.temperature}°{period.temperatureUnit}
+                    </p>
+                    <p>{period.shortForecast}</p>
+                    <p>{period.detailedForecast}</p>
+                  </div>
+                ))}
               <button
-                onClick={() => setCitySubmitted(false)}
+                onClick={() => {
+                  setCitySubmitted(false);
+                  setWeatherData(null);
+                  setError(null);
+                }}
                 className="new-search-button"
               >
                 Search Another City
