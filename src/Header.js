@@ -8,9 +8,9 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <span className="lg:text-5xl text-3xl font-bold">WeatherWise</span>
+            <span className="lg:text-3xl text-3xl font-bold">WeatherWise</span>
           </div>
-          <div className="flex items-center space-x-4 text-xl lg:text-3xl">
+          <div className="flex items-center space-x-4 text-xl lg:text-xl">
             <a href="#" className="text-white hover:text-gray-300">
               Home
             </a>
