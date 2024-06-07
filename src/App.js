@@ -5,7 +5,12 @@ function App() {
   return (
     <div>
       <header>
-        <h1>Weather app</h1>
+        <div className="flex items-center justify-center bg-blue-900 py-5">
+          <h1 className="text-5xl font-display font-extrabold text-white">
+            Weather App
+          </h1>
+        </div>
+
         <Weather />
       </header>
     </div>

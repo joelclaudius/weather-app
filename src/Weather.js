@@ -69,21 +69,38 @@ const Weather = () => {
   };
 
   return (
-    <div className="weather-container">
+    <div className="">
       {!citySubmitted ? (
-        <form onSubmit={handleSubmit} className="city-form">
-          <h2>Enter a city to get weather details:</h2>
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            placeholder="Enter city"
-            className="city-input"
-          />
-          <button type="submit" className="submit-button">
-            Get Weather
-          </button>
-        </form>
+        <div className="bg-blue-800">
+          <form
+            onSubmit={handleSubmit}
+            className="grid grid-cols-1 bg-blue-800 gap-5"
+          >
+            <div className="flex items-center justify-center">
+              <h2 className="font-display text-xl font-bold py-2 text-white">
+                Enter a city to get weather details:
+              </h2>
+            </div>
+
+            <div className="flex items-center justify-center">
+              <input
+                type="text"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                placeholder="Enter city"
+                className="bg-blue-900 text-white border rounded-lg text-center p-2"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <button
+                type="submit"
+                className="font-display bg-blue-800 text-white rounded-full p-2 border-2"
+              >
+                Get Weather
+              </button>
+            </div>
+          </form>
+        </div>
       ) : (
         <>
           {loading ? (
@@ -97,40 +114,56 @@ const Weather = () => {
                   setWeatherData(null);
                   setError(null);
                 }}
-                className="try-again-button"
+                className="font-display bg-blue-800 text-white rounded-full p-2 border-2"
               >
                 Try Again
               </button>
             </div>
           ) : (
-            <div className="weather-info">
-              <h1>Weather Forecast for {city}</h1>
-              {weatherData &&
-                weatherData.properties.periods.map((period, index) => (
-                  <div key={index}>
-                    <h3>{period.name}</h3>
-                    <p>
-                      <img
-                        src={period.icon}
-                        alt={period.shortForecast}
-                        className="weather-icon"
-                      />
-                      {period.temperature}°{period.temperatureUnit}
-                    </p>
-                    <p>{period.shortForecast}</p>
-                    <p>{period.detailedForecast}</p>
-                  </div>
-                ))}
-              <button
-                onClick={() => {
-                  setCitySubmitted(false);
-                  setWeatherData(null);
-                  setError(null);
-                }}
-                className="new-search-button"
-              >
-                Search Another City
-              </button>
+            <div className="">
+              <div className="flex justify-between p-1 bg-blue-800">
+                <div>
+                  <h1 className="font-display text-xl font-bold py-2 text-white">
+                    Weather Forecast for {city}
+                  </h1>
+                </div>
+                <div>
+                  <button
+                    onClick={() => {
+                      setCitySubmitted(false);
+                      setWeatherData(null);
+                      setError(null);
+                    }}
+                    className="font-display bg-blue-800 text-white rounded-full p-2 border-2"
+                  >
+                    Search Another City
+                  </button>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 gap-0 h-auto w-auto overflow-scroll">
+                {weatherData &&
+                  weatherData.properties.periods.map((period, index) => (
+                    <div key={index} className="shadow-xl rounded-lg border-2">
+                      <h3 className="font-display text-lg font-semibold ">
+                        {period.name}
+                      </h3>
+                      <p className="font-bold">
+                        <img
+                          src={period.icon}
+                          alt={period.shortForecast}
+                          className="w-full h-[250px]"
+                        />
+                        {period.temperature}°{period.temperatureUnit}
+                      </p>
+                      <p className="font-sans text-sm px-2">
+                        {period.shortForecast}
+                      </p>
+                      <p className="font-sans text-sm px-2">
+                        {period.detailedForecast}
+                      </p>
+                    </div>
+                  ))}
+              </div>
             </div>
           )}
         </>
