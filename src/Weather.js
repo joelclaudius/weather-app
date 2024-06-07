@@ -126,7 +126,7 @@ const Weather = () => {
             </div>
           ) : (
             <div className="">
-              <div className="flex justify-between  bg-blue-900 lg:h-[80px] py-4 lg:px-[380px]">
+              <div className="flex justify-between  bg-blue-900 lg:h-[80px] py-4 lg:px-[380px] md:px-3">
                 <div>
                   <h1 className="font-display text-xl font-bold py-2 text-white lg:text-3xl">
                     Weather Forecast for {city}
@@ -145,7 +145,7 @@ const Weather = () => {
                   </button>
                 </div>
               </div>
-              <div className="grid grid-cols-1 gap-0 h-auto w-auto overflow-scroll sm:grid-cols-2 md:grid-cols-4 sm:gap-5 md:gap-5 m-auto lg:px-[380px]">
+              <div className="grid grid-cols-1 gap-0 h-auto w-auto overflow-scroll sm:grid-cols-2 md:grid-cols-4 sm:gap-5 md:gap-5 m-auto lg:px-[380px] md:px-3">
                 {weatherData &&
                   weatherData.properties.periods.map((period, index) => (
                     <div key={index} className="shadow-xl rounded-lg border-2">

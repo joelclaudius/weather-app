@@ -2,7 +2,7 @@
   display: inline-block;
   width: 2px;
   background-color: #333;
-  animation: blink 0.9s infinite;
+  animation: blink 1.2s infinite;
 }
 
 @keyframes blink {

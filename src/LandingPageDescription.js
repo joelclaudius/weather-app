@@ -7,12 +7,12 @@ const LandingPageDescription = () => {
  `;
 
   return (
-    <section className="bg-blue-800  lg:py-8 h-[400px] lg:h-[400px] lg:pt-[120px] lg:px-[400px]">
+    <section className="bg-blue-800  lg:py-8 h-[400px] md:pt-[120px] lg:h-[500px] lg:pt-[120px] lg:px-[500px] md:px-[100px] ">
       <h1 className=" text-xl lg:text-3xl font-bold text-center text-white mb-4 italic">
         Welcome to WeatherWise
       </h1>
-      <p className="lg:text-xl text-white pb-4 text-center ">
-        <TypingEffect text={description} speed={50} />
+      <p className="lg:text-xl text-black pb-4 text-center shadow-lg bg-white rounded-3xl p-4 lg:p-10 h-[200px] lg:h-[300px]">
+        <TypingEffect text={description} speed={75} />
       </p>
     </section>
   );

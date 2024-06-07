@@ -13,7 +13,7 @@ const TypingEffect = ({ text, speed }) => {
         setIndex(index + 1);
         if (text[index] === "." || text[index] === "!") {
           setPause(true);
-          setTimeout(() => setPause(false), 500); // Pause for 500ms at end of sentences
+          setTimeout(() => setPause(false), 600); // Pause for 500ms at end of sentences
         }
       }, speed);
       return () => clearTimeout(timer);
