@@ -104,7 +104,7 @@ const Weather = () => {
       ) : (
         <>
           {loading ? (
-            <p className="bg-blue-800">Loading...</p>
+            <p className="bg-blue-800 text-white text-lg italic">Loading...</p>
           ) : error ? (
             <div className="bg-blue-800">
               <p className="font-display text-xl font-bold text-white flex justify-center items-cente py-6">
