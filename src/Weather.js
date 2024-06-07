@@ -72,7 +72,7 @@ const Weather = () => {
     <div className="weather-container">
       {!citySubmitted ? (
         <form onSubmit={handleSubmit} className="city-form">
-          <h2>Enter a city to get the weather details:</h2>
+          <h2>Enter a city to get weather details:</h2>
           <input
             type="text"
             value={city}
