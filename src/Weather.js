@@ -145,7 +145,7 @@ const Weather = () => {
                   </button>
                 </div>
               </div>
-              <div className="grid grid-cols-1 gap-0 h-auto w-auto overflow-scroll sm:grid-cols-2 md:grid-cols-4 sm:gap-5 md:gap-5 m-auto lg:px-[380px] md:px-3">
+              <div className="grid grid-cols-1 gap-3 h-auto w-auto overflow-scroll sm:grid-cols-2 md:grid-cols-4 sm:gap-5 md:gap-5 m-auto lg:px-[380px] md:px-3 px-5">
                 {weatherData &&
                   weatherData.properties.periods.map((period, index) => (
                     <div key={index} className="shadow-xl rounded-lg border-2">
