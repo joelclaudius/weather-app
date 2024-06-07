@@ -7,7 +7,7 @@ const LandingPageDescription = () => {
  `;
 
   return (
-    <section className="bg-blue-800 lg:px-[200px] lg:py-8 h-[300px] lg:h-[300px]">
+    <section className="bg-blue-800  lg:py-8 h-[400px] lg:h-[400px] lg:pt-[120px] lg:px-[400px]">
       <h1 className=" text-xl lg:text-3xl font-bold text-center text-white mb-4 italic">
         Welcome to WeatherWise
       </h1>

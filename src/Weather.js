@@ -69,12 +69,12 @@ const Weather = () => {
   };
 
   return (
-    <div className=" ">
+    <div className="">
       {!citySubmitted ? (
-        <div className="bg-blue-800 h-[500px] py-6">
+        <div className="bg-blue-700 h-[500px] py-6">
           <form
             onSubmit={handleSubmit}
-            className="grid grid-cols-1 bg-blue-800  gap-10"
+            className="grid grid-cols-1 bg-blue-700  gap-10"
           >
             <div className="flex items-center justify-center">
               <h2 className="font-display text-3xl font-bold py-2 text-white">
@@ -94,7 +94,7 @@ const Weather = () => {
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className="font-display bg-blue-800 text-white rounded-full p-2 border-2 font-bold"
+                className="font-display bg-blue-700 text-white rounded-full p-2 border-2 font-bold"
               >
                 Get Weather
               </button>
@@ -126,9 +126,9 @@ const Weather = () => {
             </div>
           ) : (
             <div className="">
-              <div className="flex justify-between p-1 bg-blue-800">
+              <div className="flex justify-between  bg-blue-900 lg:h-[80px] py-4 lg:px-[380px]">
                 <div>
-                  <h1 className="font-display text-xl font-bold py-2 text-white">
+                  <h1 className="font-display text-xl font-bold py-2 text-white lg:text-3xl">
                     Weather Forecast for {city}
                   </h1>
                 </div>
@@ -139,13 +139,13 @@ const Weather = () => {
                       setWeatherData(null);
                       setError(null);
                     }}
-                    className="font-display bg-blue-800 text-white rounded-full p-2 border-2"
+                    className="font-display bg-blue-900 text-white rounded-full p-2 border-2 lg:text-3xl"
                   >
                     Search Another City
                   </button>
                 </div>
               </div>
-              <div className="grid grid-cols-1 gap-0 h-auto w-auto overflow-scroll sm:grid-cols-2 md:grid-cols-4 sm:gap-5 md:gap-5 m-auto">
+              <div className="grid grid-cols-1 gap-0 h-auto w-auto overflow-scroll sm:grid-cols-2 md:grid-cols-4 sm:gap-5 md:gap-5 m-auto lg:px-[380px]">
                 {weatherData &&
                   weatherData.properties.periods.map((period, index) => (
                     <div key={index} className="shadow-xl rounded-lg border-2">

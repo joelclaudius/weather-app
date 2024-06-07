@@ -27,7 +27,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-blue-900 text-white p-8 grid md:grid-cols-2 lg:grid-cols-2 lg:gap-3 lg:py-10 lg:px-10">
+    <footer className="bg-blue-900 text-white p-8 grid md:grid-cols-2 lg:grid-cols-2 lg:gap-3 lg:py-10  lg:px-[390px]">
       <div className="container mx-auto">
         <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
         {submitted ? (
@@ -48,7 +48,7 @@ const Footer = () => {
                   value={fname}
                   onChange={(e) => setFName(e.target.value)}
                   required
-                  className="bg-blue-800 text-white border rounded-lg text-center p-2"
+                  className="bg-white text-blue-900 border rounded-lg text-center p-2"
                 />
               </div>
               <div>
@@ -61,7 +61,7 @@ const Footer = () => {
                   value={lname}
                   onChange={(e) => setLName(e.target.value)}
                   required
-                  className="bg-blue-800 text-white border rounded-lg text-center p-2"
+                  className="bg-white text-blue-900 border rounded-lg text-center p-2"
                 />
               </div>
               <div>
@@ -74,7 +74,7 @@ const Footer = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="bg-blue-800 text-white border rounded-lg text-center p-2 "
+                  className="bg-white text-blue-900 border rounded-lg text-center p-2"
                 />
               </div>
             </div>
@@ -89,7 +89,7 @@ const Footer = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 required
                 rows="4"
-                className="bg-blue-800 text-white border rounded-lg text-center p-2 w-full"
+                className="bg-white text-blue-900 border rounded-lg text-center p-2 w-full"
               />
             </div>
             <div className="col-span-2">
