@@ -7,6 +7,7 @@ module.exports = {
         display: ["Playfair Display"], // Add 'display' family
         sans: ["Inter"],
         caveat: ["Caveat", "cursive"],
+        indie: ['Indie Flower', 'cursive'],
       },
       colors: {
         color1: "#616161",
