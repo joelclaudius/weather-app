@@ -77,7 +77,7 @@ const Weather = () => {
             className="grid grid-cols-1 bg-blue-700  gap-10"
           >
             <div className="flex items-center justify-center">
-              <h2 className="font-display text-3xl font-bold py-2 text-white">
+              <h2 className="font-display text-2xl sm:text-3xl font-bold py-2 text-white">
                 Enter a city to get weather details:
               </h2>
             </div>
