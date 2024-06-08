@@ -27,7 +27,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-blue-900 text-white p-8 grid md:grid-cols-2 lg:grid-cols-2 lg:gap-3 lg:py-10  lg:px-[390px]">
+    <footer className="bg-blue-900 text-white p-8 grid md:grid-cols-2 lg:grid-cols-2 lg:gap-3 lg:py-10  lg:px-[500px]">
       <div className="container mx-auto">
         <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
         {submitted ? (

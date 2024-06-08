@@ -12,7 +12,7 @@ const LandingPageDescription = () => {
         Welcome to WeatherWise
       </h1>
       <p className="lg:text-xl text-black p-4 text-center shadow-lg bg-white rounded-3xl lg:p-10 lg:h-[300px] h-[350px]">
-        <TypingEffect text={description} speed={75} />
+        <TypingEffect text={description} speed={50} />
       </p>
     </section>
   );
