@@ -31,7 +31,7 @@ const Footer = () => {
       <div className="container mx-auto">
         <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
         {submitted ? (
-          <p className="mb-4">Thank you for your message!</p>
+          <p className="mb-4">Thank you for your feedback!</p>
         ) : (
           <form
             onSubmit={handleSubmit}
@@ -81,7 +81,7 @@ const Footer = () => {
 
             <div className="col-span-2">
               <label htmlFor="message" className="block mb-1">
-                Message:
+                Feedback:
               </label>
               <textarea
                 id="message"

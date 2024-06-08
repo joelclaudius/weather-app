@@ -21,7 +21,7 @@ const TypingEffect = ({ text, speed }) => {
   }, [index, text, speed, pause]);
 
   return (
-    <span className="typing-effect italic ">
+    <span className="typing-effect font-caveat ">
       {displayedText}
       <span className="cursor italic">|</span>
     </span>

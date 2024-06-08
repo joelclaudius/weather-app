@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         display: ["Playfair Display"], // Add 'display' family
         sans: ["Inter"],
+        caveat: ["Caveat", "cursive"],
       },
       colors: {
         color1: "#616161",
