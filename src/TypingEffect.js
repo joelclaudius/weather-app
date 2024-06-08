@@ -21,7 +21,7 @@ const TypingEffect = ({ text, speed }) => {
   }, [index, text, speed, pause]);
 
   return (
-    <span className="typing-effect font-satisfy text-lg">
+    <span className="typing-effect font-handwriting text-lg">
       {displayedText}
       <span className="cursor italic">|</span>
     </span>

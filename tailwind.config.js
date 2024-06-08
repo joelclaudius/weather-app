@@ -9,6 +9,7 @@ module.exports = {
         caveat: ["Caveat", "cursive"],
         indie: ["Indie Flower", "cursive"],
         satisfy: ["Satisfy", "cursive"],
+        handwriting: ['Patrick Hand', 'cursive'],
       },
       colors: {
         color1: "#616161",
