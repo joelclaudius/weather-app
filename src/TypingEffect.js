@@ -21,7 +21,7 @@ const TypingEffect = ({ text, speed }) => {
   }, [index, text, speed, pause]);
 
   return (
-    <span className="typing-effect font-handwriting text-base lg:text-xl">
+    <span className="typing-effect font-handwriting text-base sm:text-xl">
       {displayedText}
       <span className="cursor ">|</span>
     </span>
